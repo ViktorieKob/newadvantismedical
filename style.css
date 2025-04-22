@@ -15,9 +15,9 @@ body, html {
 
 .login-box {
   background: white;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
   text-align: center;
   width: 90%;
   max-width: 400px;
@@ -25,17 +25,24 @@ body, html {
 
 .logo {
   width: 160px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+}
+
+h1 {
+  margin-bottom: 25px;
+  font-size: 24px;
+  color: #000;
 }
 
 input {
   display: block;
   width: 100%;
   padding: 14px;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
   border: 1px solid #ccc;
   border-radius: 6px;
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 button {
