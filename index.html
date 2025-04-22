@@ -2,19 +2,20 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <title>Přihlášení</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Přihlášení – Docházka</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="login-wrapper">
-    <div class="login-box">
-      <img src="Logo.png.png" alt="Logo" class="logo">
-      <h1>Přihlášení</h1>
-      <input type="email" id="email" placeholder="Email">
-      <input type="password" id="password" placeholder="Heslo">
-      <button onclick="login()">Přihlásit se</button>
-    </div>
+  <div class="container">
+    <h2>Přihlášení do docházky</h2>
+    <input type="email" id="email" placeholder="Email" />
+    <input type="password" id="password" placeholder="Heslo" />
+    <button onclick="login()">Přihlásit se</button>
+    <p id="error" class="error"></p>
   </div>
+
+  <script type="module" src="firebase.js"></script>
   <script type="module" src="auth.js"></script>
 </body>
 </html>
