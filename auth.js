@@ -1,32 +1,28 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-app.js';
+import { getAuth, signInWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.22.1/firebase-auth.js';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD4j1bO7JDbzUM-ca4AWUSkGYpmglWK_IQ",
-  authDomain: "dochazka-app.firebaseapp.com",
-  projectId: "dochazka-app",
-  storageBucket: "dochazka-app.appspot.com",
-  messagingSenderId: "912220280247",
-  appId: "1:912220280247:web:e0b27491b9234cba984432"
+  // Sem přijde tvoje Firebase config
 };
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-window.login = () => {
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
-
+window.login = function () {
+  const email = document.getElementById('email').value;
+  const password = document.getElementById('password').value;
   signInWithEmailAndPassword(auth, email, password)
-    .then(userCredential => {
+    .then((userCredential) => {
       const user = userCredential.user;
-      if (email.includes("vedouci")) {
-        window.location.href = "dashboard-v.html";
+      if (user.email === 'vedouci@test.cz') {
+        window.location.href = 'zadosti.html';
+      } else if (user.email === 'sestra@test.cz') {
+        window.location.href = 'dashboard.html';
       } else {
-        window.location.href = "dashboard.html";
+        alert('Neznámý uživatel.');
       }
     })
-    .catch(error => {
-      alert("Chyba přihlášení: " + error.message);
+    .catch((error) => {
+      alert('Chyba při přihlášení: ' + error.message);
     });
 };
